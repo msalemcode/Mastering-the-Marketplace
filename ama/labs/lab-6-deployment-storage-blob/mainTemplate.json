@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    },
+    "storageAccountType": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat(parameters('storageAccountName'), uniqueString('storage'))]",
+    "containerName": "installer",
+    "blobName":"package.zip",
+    "artifacts":   "[uri(deployment().properties.templateLink.uri, 'artifacts/package.zip')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2021-08-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "Storage",
+      "properties": {
+                "allowBlobPublicAccess": true
+      },
+            "resources": [
+        {
+          "name": "[concat('default/', variables('containerName'))]",
+          "type": "blobServices/containers",
+          "apiVersion": "2018-03-01-preview",
+          "dependsOn": [
+            "[parameters('storageAccountName')]"
+          ]
+        },
+        {
+          "type": "Microsoft.Resources/deploymentScripts",
+          "apiVersion": "2020-10-01",
+          "name": "UploadBlob",
+          "location": "[resourceGroup().location]",
+          "kind": "AzureCLI",
+          "dependsOn": [
+            "[concat('default/', variables('containerName'))]"
+          ],
+           "properties": {
+            "azCliVersion": "2.32.0",
+          "scriptContent": "[concat('az storage blob copy start --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-02-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --destination-blob ',variables('blobName'),' --destination-container ',variables('containerName'),' --source-uri',variables('artifacts'))]",                  
+          "supportingScriptUris":[
+                  "[variables('artifacts')]"
+            ],
+          "timeout": "PT1H",
+          "cleanupPreference": "OnSuccess",
+          "retentionInterval": "PT4H"
+        }
+        }
+      ]
+
+    }
+  ]
+}
