@@ -55,7 +55,7 @@
           ],
            "properties": {
             "azCliVersion": "2.32.0",
-          "scriptContent": "[concat('az storage blob copy start --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-02-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --destination-blob ',variables('blobName'),' --destination-container ',variables('containerName'),' --source-uri ',variables('artifacts'))]",                  
+          "scriptContent": "[concat('az storage blob copy upload --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-02-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --name ',variables('blobName'),' --container-name ',variables('containerName'),' -f ./',variables('artifacts'))]",                  
           "supportingScriptUris":[
                   "[variables('artifacts')]"
             ],
