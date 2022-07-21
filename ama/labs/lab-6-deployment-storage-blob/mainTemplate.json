@@ -17,10 +17,10 @@
     }
   },
   "variables": {
-    "storageAccountName": "[concat(parameters('storageAccountName'), uniqueString('storage'))]",
+    "storageAccountName": "[concat(parameters('storageAccountName'), uniqueString(resourceGroup().name))]",
     "containerName": "installer",
     "blobName":"package.zip",
-    "artifacts":   "[uri(deployment().properties.templateLink.uri, 'artifacts/package.zip')]"
+    "artifacts":  "[uri(deployment().properties.templateLink.uri, 'artifacts/package.zip')]"
   },
   "resources": [
     {
@@ -41,7 +41,7 @@
           "type": "blobServices/containers",
           "apiVersion": "2018-03-01-preview",
           "dependsOn": [
-            "[parameters('storageAccountName')]"
+            "[variables('storageAccountName')]"
           ]
         },
         {
@@ -55,7 +55,7 @@
           ],
            "properties": {
             "azCliVersion": "2.32.0",
-          "scriptContent": "[concat('az storage blob copy start --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-02-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --destination-blob ',variables('blobName'),' --destination-container ',variables('containerName'),' --source-uri',variables('artifacts'))]",                  
+          "scriptContent": "[concat('az storage blob copy start --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2018-02-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --destination-blob ',variables('blobName'),' --destination-container ',variables('containerName'),' --source-uri ',variables('artifacts'))]",                  
           "supportingScriptUris":[
                   "[variables('artifacts')]"
             ],
