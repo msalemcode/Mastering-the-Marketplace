@@ -57,7 +57,7 @@
           ],
            "properties": {
             "azCliVersion": "2.32.0",
-          "scriptContent": "[concat('az storage blob upload --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --name ',variables('blobName'),' --container-name ',variables('containerName'),' -f ./',variables('artifacts'))]",                  
+          "scriptContent": "[concat('az storage blob upload --account-key ',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2021-09-01').keys[0].value,' --account-name ',variables('storageAccountName'),' --name ',variables('blobName'),' --container-name ',variables('containerName'),' -f ./',variables('blobName'))]",                  
           "supportingScriptUris":[
                   "[variables('artifacts')]"
             ],
