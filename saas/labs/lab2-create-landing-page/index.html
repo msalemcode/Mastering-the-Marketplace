@@ -1,0 +1,1046 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/Mastering-the-Marketplace/saas/labs/lab2-create-landing-page/">
+      
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+    
+    
+      
+        <title>Lab 2 - Creating a Landing Page - Mastering the Marketplace</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-QFBKKPKXNV"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-QFBKKPKXNV",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-QFBKKPKXNV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <meta content="https://blogs.microsoft.com/wp-content/uploads/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg" property="image">
+  <meta content="https://blogs.microsoft.com/wp-content/uploads/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg" property="og:image">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#0078D4" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-2-creating-a-landing-page" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://microsoft.github.io/Mastering-the-Marketplace/" title="Mastering the Marketplace" class="md-header__button md-logo" aria-label="Mastering the Marketplace" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mastering the Marketplace
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 2 - Creating a Landing Page
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/Mastering-the-Marketplace" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/Mastering-the-Marketplace
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://microsoft.github.io/Mastering-the-Marketplace/" title="Mastering the Marketplace" class="md-nav__button md-logo" aria-label="Mastering the Marketplace" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"/></svg>
+
+    </a>
+    Mastering the Marketplace
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/Mastering-the-Marketplace" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/Mastering-the-Marketplace
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Courses by offer type
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Courses by offer type
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/ama/" class="md-nav__link">
+        Azure Managed Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/container/" class="md-nav__link">
+        Container offers for K8s apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/saas/" class="md-nav__link">
+        SaaS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/vm/" class="md-nav__link">
+        Virtual Machines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/teams/" class="md-nav__link">
+        Teams
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Bonus content
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bonus content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/saas-accelerator/" class="md-nav__link">
+        SaaS Accelerator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/partner-center/" class="md-nav__link">
+        Partner Center
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          More resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          More resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/misc/select-offer-type" class="md-nav__link">
+        🌐 Choose your offer type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/learning-paths/" class="md-nav__link">
+        🚦 Learning paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/learning-paths/customer" class="md-nav__link">
+        🔎 For your customers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://microsoftcloudpartner.eventbuilder.com/MarketplaceOverviewandQAforPartners" class="md-nav__link">
+        📆 Marketplace Office Hours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/misc/change-log" class="md-nav__link">
+        🗒️ Site change log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://forms.office.com/r/0gCrzhSMkw" class="md-nav__link">
+        ✉️ Contact us
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-compile-the-visual-studio-solution" class="md-nav__link">
+    Exercise: Compile the Visual Studio Solution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-creating-a-single-tenant-application-registrations" class="md-nav__link">
+    Exercise: Creating a Single-Tenant Application Registrations
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Creating a Single-Tenant Application Registrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-single-tenant-app-registration" class="md-nav__link">
+    Create a single-tenant App Registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-secret" class="md-nav__link">
+    Add a secret
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-creating-a-multi-tenant-app-registration" class="md-nav__link">
+    Exercise: Creating a multi-tenant App Registration
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Creating a multi-tenant App Registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-a-platform-to-the-multi-tenant-app-registration" class="md-nav__link">
+    Add a platform to the multi-tenant app registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-client-secret" class="md-nav__link">
+    Create a client secret
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-appsettingsjson" class="md-nav__link">
+    Exercise: appsettings.json
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: appsettings.json">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#values-from-the-saas-workshop-multi-tenant-app-registration" class="md-nav__link">
+    Values from the saas-workshop-multi-tenant app registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values-from-the-saas-workshop-single-tenant-app-registration" class="md-nav__link">
+    Values from the saas-workshop-single-tenant app registration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-your-landing-page" class="md-nav__link">
+    Publishing your landing page
+  </a>
+  
+    <nav class="md-nav" aria-label="Publishing your landing page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-your-publish-profile" class="md-nav__link">
+    Creating your publish profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-landing-page" class="md-nav__link">
+    Publishing the landing page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-your-landing-page" class="md-nav__link">
+    Registering your landing page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-browse-to-your-landing-page" class="md-nav__link">
+    Exercise: Browse to your landing page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-update-your-offer-in-partner-center-and-publish-it" class="md-nav__link">
+    Exercise: Update Your Offer in Partner Center and Publish It
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Update Your Offer in Partner Center and Publish It">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-configuration" class="md-nav__link">
+    Technical configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publishing-time" class="md-nav__link">
+    Publishing Time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-buy-your-offer-and-check-your-landing-page" class="md-nav__link">
+    Exercise: Buy Your Offer and Check Your Landing Page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscribing-to-your-offer" class="md-nav__link">
+    Subscribing to your offer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purchasing-the-saas-offer" class="md-nav__link">
+    Purchasing the SaaS offer
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-2-creating-a-landing-page">Lab 2 - Creating a Landing Page<a class="headerlink" href="#lab-2-creating-a-landing-page" title="Permanent link">#</a></h1>
+<p>👈 <a href="../../#labs">Back to SaaS Offer labs</a></p>
+<p>⚠️ Completion of this lab is required for the following labs in the series to work properly.</p>
+<blockquote>
+<p>💀 The code in this lab is <strong>NOT</strong> meant to be used for production environments. It is a simple example with no error handling, no custom workflows, and is for learning purposes only.</p>
+</blockquote>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>In this lab, you will build on what you accomplished in <a href="../lab1-create-pc-offer/">Lab 1: Creating a SaaS Offer in Partner Center</a>. You will deploy a landing page and integrate it with your Partner Center SaaS Offer, enabling publishing of the offer and purchasing the offer in the <strong>Preview</strong> stage of the publication pipeline.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
+<p>For this lab, you will need the following.</p>
+<ol>
+<li>An offer configured in <a href="https://partner.microsoft.com/en-us/dashboard">Partner Center</a> as per Lab 1</li>
+<li>An Azure account and access to the <a href="https://portal.azure.com/">Azure portal</a></li>
+<li>Visual Studio 2022 (any version)</li>
+<li>Git (optional)</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> It is possible to complete this using Visual Studio Code, but the instructions are tailored for Visual Studio 2022.</p>
+</blockquote>
+<h2 id="exercise-compile-the-visual-studio-solution">Exercise: Compile the Visual Studio Solution<a class="headerlink" href="#exercise-compile-the-visual-studio-solution" title="Permanent link">#</a></h2>
+<p>There are three projects in the solution you'll be working with. You will deal with them one at a time over the course of the labs. In this lab, we will start with the landing page project.</p>
+<ol>
+<li>
+<p>Clone this repository or download a ZIP file of its contents and UNZIP them on your machine.</p>
+<p>https://github.com/microsoft/Mastering-the-Marketplace</p>
+</li>
+<li>
+<p>Using Visual Studio 2022, open the following solution file on your machine. Take care to choose the <strong>begin</strong> folder.</p>
+<p><code>**\Mastering-the-Marketplace\saas\labs\lab-code\begin\SaaSLabsBegin.sln</code></p>
+</li>
+<li>
+<p>Build the solution. You should get no build errors.</p>
+</li>
+</ol>
+<h2 id="exercise-creating-a-single-tenant-application-registrations">Exercise: Creating a Single-Tenant Application Registrations<a class="headerlink" href="#exercise-creating-a-single-tenant-application-registrations" title="Permanent link">#</a></h2>
+<p>In this exercise, you will create an app registration in the Azure portal. It will be single-tenant and used to connect to the SaaS API. </p>
+<h3 id="create-a-single-tenant-app-registration">Create a single-tenant App Registration<a class="headerlink" href="#create-a-single-tenant-app-registration" title="Permanent link">#</a></h3>
+<ol>
+<li>Log in to the Azure portal.</li>
+<li>In the top-of-center command window in the portal, type "app reg" and select the item "App registrations" that appears. You will see a list of current application registrations.</li>
+<li>At the top of the page, click the <strong>+ New registration</strong> link. You are taken to the <strong>Register an application page</strong>.</li>
+<li>For the purposes of this lab, use <code>saas-workshop-single-tenant</code> as the name of this app registration.</li>
+<li>At the bottom of the page, click the <strong>Register</strong> button.</li>
+</ol>
+<h3 id="add-a-secret">Add a secret<a class="headerlink" href="#add-a-secret" title="Permanent link">#</a></h3>
+<p>Now you will add a secret to the app registration. Make sure to copy and paste the secret value somewhere you can access it later.</p>
+<ol>
+<li>Click into the <code>saas-workshop-single-tenant</code> application registration.</li>
+<li>In the left-hand menu, find the <strong>Manage</strong> menu and click the <strong>Certificates and secrets</strong> link.</li>
+<li>Create a new client secret.<ol>
+<li>Give it a description.</li>
+<li>Choose an expiration date. The 6-month default should be fine.</li>
+</ol>
+</li>
+<li>Copy the <strong>Value</strong> of the secret and paste it somewhere you can easily access it later.</li>
+</ol>
+<h2 id="exercise-creating-a-multi-tenant-app-registration">Exercise: Creating a multi-tenant App Registration<a class="headerlink" href="#exercise-creating-a-multi-tenant-app-registration" title="Permanent link">#</a></h2>
+<p>In this exercise, you will create a multi-tenant app registration in the Azure portal to authenticate users coming to your landing page.</p>
+<ol>
+<li>Create an app registration. For the purposes of this lab, use <code>saas-workshop-multi-tenant</code> as the name of this app registration.</li>
+<li>Under <strong>Supported account types</strong>, select the option: <strong>Accounts in any organizational directory (Any Azure AD directory - Multitenant)</strong>.</li>
+<li>At the bottom of the page, click the <strong>Register</strong> button.</li>
+</ol>
+<h3 id="add-a-platform-to-the-multi-tenant-app-registration">Add a platform to the multi-tenant app registration<a class="headerlink" href="#add-a-platform-to-the-multi-tenant-app-registration" title="Permanent link">#</a></h3>
+<ol>
+<li>In the left-hand menu under the <strong>Overview</strong> menu item, click the <strong>Quickstart</strong> link.</li>
+<li>Find the <strong>Web application</strong> section and click the <strong>Start</strong> button.</li>
+<li>Click <strong>ASP.NET Core</strong>.</li>
+<li>On the resulting Quickstart page, click the <strong>Make this change for me</strong> button.</li>
+<li>Under the <strong>Configuring your application registration</strong>, click the <strong>Make updates</strong> button.</li>
+<li>
+<p>In the left-hand menu under the <strong>Manage</strong> section, click the <strong>Authentication</strong> link.</p>
+<blockquote>
+<p>Here you can see that two URLS have been added to the Redirect URIs section for you. These allow running your code in debug mode using the default debugger ports. You will add your actual landing page URLs here later.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="create-a-client-secret">Create a client secret<a class="headerlink" href="#create-a-client-secret" title="Permanent link">#</a></h3>
+<ol>
+<li>Create a client secret for this app registration.</li>
+<li>Copy the <strong>Value</strong> of the secret and paste it somewhere you can easily access it later.</li>
+</ol>
+<h2 id="exercise-appsettingsjson">Exercise: appsettings.json<a class="headerlink" href="#exercise-appsettingsjson" title="Permanent link">#</a></h2>
+<p>The <code>appsettings.json</code> file in the LandingPage project must be filled out before publishing the application. That's what you'll do in this section.</p>
+<h3 id="values-from-the-saas-workshop-multi-tenant-app-registration">Values from the saas-workshop-multi-tenant app registration<a class="headerlink" href="#values-from-the-saas-workshop-multi-tenant-app-registration" title="Permanent link">#</a></h3>
+<p>All changes in this section occur under the <code>AzureAD</code> section of the <code>appsettings.json</code> file.</p>
+<ol>
+<li>In the Landing Page project, open the <code>appsettings.json</code> file.</li>
+<li>In the Azure portal, click the <strong>Azure Active Directory</strong> button in the left-hand menu.</li>
+<li>On the overview page in the <strong>Basic information</strong> section, find the the <strong>Primary domain</strong> and use it to replace <code>DOMAIN_NAME</code> in <code>appsettings.json</code>.</li>
+<li>In the left-hand menu under the <strong>Manage</strong> menu, click the <strong>App registrations</strong> link.</li>
+<li>Click the <code>saas-workshop-multi-tenant</code> app registration.</li>
+<li>In the <code>appsetting.json</code> file, replace <code>CLIENT_ID</code> with the <strong>Application (client) ID</strong> from this screen.</li>
+<li>Replace <code>CLIENT_SECRET</code> with the client secret you noted earlier for the <code>saas-workshop-multi-tenant</code> app registration.</li>
+</ol>
+<h3 id="values-from-the-saas-workshop-single-tenant-app-registration">Values from the saas-workshop-single-tenant app registration<a class="headerlink" href="#values-from-the-saas-workshop-single-tenant-app-registration" title="Permanent link">#</a></h3>
+<p>All changes in this section occur under the <code>MarketplaceAPI</code> section of the <code>appsettings.json</code> file.</p>
+<ol>
+<li>Go back to the list of App registrations.</li>
+<li>Click the <code>saas-workshop-single-tenant</code> app registration.</li>
+<li>In the <code>appsetting.json</code> file, replace <code>CLIENT_ID</code> with the <strong>Application (client) ID</strong> from this screen.</li>
+<li>In the <code>appsetting.json</code> file, replace <code>TENANT_ID</code> with the <strong>Directory (tenant) ID</strong> from this screen.</li>
+<li>In the <code>appsetting.json</code> file, replace <code>CLIENT_SECRET</code> with the client secret value you stored earlier.</li>
+</ol>
+<p>Congratulations, your LandingPage project is ready to publish!</p>
+<h2 id="publishing-your-landing-page">Publishing your landing page<a class="headerlink" href="#publishing-your-landing-page" title="Permanent link">#</a></h2>
+<p>First you must create a publish profile file that will hold the information about your project to publish. Also, you must create an App Service Plan to host your website.</p>
+<h3 id="creating-your-publish-profile">Creating your publish profile<a class="headerlink" href="#creating-your-publish-profile" title="Permanent link">#</a></h3>
+<ol>
+<li>In the Solution Explorer of Visual Studio, right click the <code>LandingPage</code> project and select <strong>Publish</strong>.</li>
+<li>The <strong>Publish</strong> dialog appears.</li>
+<li>Select <strong>Azure</strong> as your publish target and click the <strong>Next</strong> button.</li>
+<li>
+<p>Select <strong>Azure App Service (Windows)</strong> and click the <strong>Next</strong> button.</p>
+<blockquote>
+<p>You are now on the <strong>App Service</strong> tab. You may now need to sign in to Visual Studio with your Azure credentials.</p>
+</blockquote>
+</li>
+<li>
+<p>Choose the correct subscription from the list of subscriptions.</p>
+</li>
+<li>To the far right of the words <strong>App Service Instances</strong>, click the green <strong>+</strong> (plus) button to create an App Service. The App Service dialog opens.</li>
+<li>Name the App Service <code>SaaSWorkshopLandingPage</code> with a number on the end to make it unique.</li>
+<li>Choose <code>saas-workshop</code> for the resource group.</li>
+<li>Create a new <strong>Hosting Plan</strong> and name it <code>SaaSWorkshopAppServicePlan</code>.</li>
+<li>
+<p>Click the <strong>Create</strong> button at the bottom of the screen.</p>
+<blockquote>
+<p>After clicking the <strong>Create</strong> button at the bottom of the page it may take a moment for the Hosting Plan and App Service to be created.</p>
+</blockquote>
+</li>
+<li>
+<p>After the App Service is created, you will be back at the <strong>Publish</strong> dialog. Select your new App Service instance and click the <strong>Next</strong> button.</p>
+</li>
+<li>For Publish type, select <strong>Publish (generate pubxmlfile)</strong>.</li>
+<li>Click the <strong>Finish</strong> button at the bottom of the dialog.</li>
+</ol>
+<p>You now have a publish profile that can be used to publish your application.</p>
+<h3 id="publishing-the-landing-page">Publishing the landing page<a class="headerlink" href="#publishing-the-landing-page" title="Permanent link">#</a></h3>
+<p>Near the top-right of the Publish dialog click the <strong>Publish</strong> button. This deploys your application. You can watch the publish process in the Output window at the bottom of the screen.</p>
+<blockquote>
+<p>The page will launch, but shows an error message. You aren't quite done configuring your landing page application.</p>
+</blockquote>
+<h3 id="registering-your-landing-page">Registering your landing page<a class="headerlink" href="#registering-your-landing-page" title="Permanent link">#</a></h3>
+<ol>
+<li>In the command bar at the top of the Azure portal, search for and select <strong>App Services</strong>.</li>
+<li>Click on the App Service you just created, <strong>SaaSWorkshopLandingPage</strong>.</li>
+<li>On the overview screen in Visual Studio, the <strong>URL</strong> for the site should be in the <strong>Hosting</strong> section. Copy it into your paste buffer.</li>
+<li>In the command bar at the top of the Azure portal, search for and select <strong>App registrations</strong>.</li>
+<li>Click on the <code>saas-workshop-multi-tenant</code> app registration.</li>
+<li>In the left-hand menu click the <strong>Authentication</strong> link.</li>
+<li>In the <strong>Web &gt; Redirect URIs</strong> section, click <strong>Add URI</strong> and paste in your Landing Page URL.</li>
+<li>
+<p>Paste it in again on another line, this time adding a suffix of <code>/signin-oidc</code> so that your URI looks something like this.</p>
+<blockquote>
+<p>https://*.azurewebsites.net/signin-oidc</p>
+</blockquote>
+</li>
+</ol>
+<p>Click the <strong>Save</strong> button at the top of the screen.</p>
+<h2 id="exercise-browse-to-your-landing-page">Exercise: Browse to your landing page<a class="headerlink" href="#exercise-browse-to-your-landing-page" title="Permanent link">#</a></h2>
+<ol>
+<li>Using the App Service URL to you created, <code>https://&lt;prefix&gt;.azurewebsites.net</code>, browse to that web page.</li>
+<li>Authenticate when prompted.</li>
+<li>You should see a message that reads, "<strong>Token URL parameter cannot be empty</strong>."</li>
+</ol>
+<blockquote>
+<p><strong>This is good!</strong> You are seeing this message because you aren't coming to the landing page through the Azure portal and no marketplace purchase token is being passed. To finish your configuration, we need to configure Partner Center to be aware of the landing page.</p>
+</blockquote>
+<h2 id="exercise-update-your-offer-in-partner-center-and-publish-it">Exercise: Update Your Offer in Partner Center and Publish It<a class="headerlink" href="#exercise-update-your-offer-in-partner-center-and-publish-it" title="Permanent link">#</a></h2>
+<p>Now that you have deployed your application, you can configure the <strong>Technical configuration</strong> section of Partner Center.</p>
+<ol>
+<li>Open your offer in Partner Center.</li>
+<li>Navigate to the <strong>Technical configuration</strong> tab.</li>
+</ol>
+<h3 id="technical-configuration">Technical configuration<a class="headerlink" href="#technical-configuration" title="Permanent link">#</a></h3>
+<ol>
+<li>For <strong>Landing page URL</strong>, enter the URL of your new landing page.</li>
+<li>
+<p>For <strong>Connection webhook</strong>, enter the URL of your new landing page.</p>
+<blockquote>
+<p>This is not the correct value for the webhook, but we haven't published a webhook yet and this will act as a placeholder for now.</p>
+</blockquote>
+</li>
+<li>
+<p>Enter the <strong>Azure Active Directory tenant ID</strong> you've deployed your landing page to.</p>
+</li>
+<li>For <strong>Azure Active Directory application ID</strong>, enter the <strong>Application (client) ID</strong> of the <code>saas-workshop-single-tenant</code> App registration.</li>
+<li>Click the <strong>Save draft</strong> button.</li>
+<li>Click the <strong>Review and publish</strong> button. The Status of all sections in your offer should be green.</li>
+<li>Click the <strong>Publish</strong> button at the bottom of the screen.</li>
+</ol>
+<p>You will be directed to the top of the Offer overview, where you may watch the publication process as it occurs. You must refresh the page to see status updates. You only want to publish as far as the <strong>Publisher signoff</strong> section. When the test links appear under that section, <strong>DO NOT</strong> press the <strong>Go Live</strong> button.</p>
+<p><img alt="Offer overview" src="../lab-images/02.png" /></p>
+<p>You will need to hit refresh for awhile as your offer goes through the publish stages.</p>
+<h2 id="publishing-time">Publishing Time<a class="headerlink" href="#publishing-time" title="Permanent link">#</a></h2>
+<p>This section exists to let you know that it will take some time before your offer is finished publishing. This is the end of the lab for now as it will take some time for the offer to complete publishing to the <strong>Publisher signoff</strong> stage.</p>
+<p>To check your offers' publication status, go to the offer's <strong>Overview</strong> page. Look for links under the <strong>Publisher signoff</strong> section as shown below. Refresh the <strong>Overview</strong> page to get updates on your offer during the publication process.</p>
+<p><img alt="Offer Overview" src="../lab-images/01.png" /></p>
+<blockquote>
+<p><strong>Note:</strong> If you are in a live workshop event, please raise your hand in Microsoft Teams to indicate you are done with the lab to this point. You will be coming back to finish the rest of Lab 2 later in the workshop.</p>
+</blockquote>
+<h2 id="exercise-buy-your-offer-and-check-your-landing-page">Exercise: Buy Your Offer and Check Your Landing Page<a class="headerlink" href="#exercise-buy-your-offer-and-check-your-landing-page" title="Permanent link">#</a></h2>
+<p>In Partner Center, after the offer is in <strong>Publisher preview</strong> stage, you may subscribe to it. After the initial purchase, you will then be routed to the landing page for the offer.</p>
+<h2 id="subscribing-to-your-offer">Subscribing to your offer<a class="headerlink" href="#subscribing-to-your-offer" title="Permanent link">#</a></h2>
+<p>Once the <strong>Publisher signoff</strong> section has links under it, still <strong>DO NOT</strong> press the <strong>Go live</strong> button. Instead, this state is where you will test the purchase and functionality of your SaaS application.</p>
+<p>Under the <strong>Publisher signoff</strong> section of the Offer overview page, click the <strong>Azure portal preview</strong> link.</p>
+<blockquote>
+<p>If you receive the message, "Could not create the marketplace item" or a "404" message, wait another several minutes and try again. The offer is simply still being created. Preview creation can take up to 45 minutes in some cases.</p>
+</blockquote>
+<h2 id="purchasing-the-saas-offer">Purchasing the SaaS offer<a class="headerlink" href="#purchasing-the-saas-offer" title="Permanent link">#</a></h2>
+<p>Once you can click the <strong>Azure portal preview</strong> link in Partner Center, do so. You will see a form to fill out to purchase your SaaS Offer. Move on to the next section.</p>
+<p><strong>You are now acting in the role of the customer.</strong></p>
+<ol>
+<li>Click <strong>Get it Now</strong>. On the next screen  you can fill it out and subscribe to the subscription you are making.</li>
+<li>For the resource group, create a new one named <code>saas-workshop-purchases</code>.</li>
+<li>Give your SaaS offer a name. Consider <code>SaaSWorkshop01</code>.</li>
+<li>Click the <strong>Review + subscribe</strong> button at the bottom of the page.</li>
+<li>
+<p>Click the <strong>Subscribe</strong> button at the bottom of the page.</p>
+<blockquote>
+<p>Your subscription is being provisioned. Once it is complete, you will see a <strong>Configure account now</strong> button on the screen.</p>
+</blockquote>
+</li>
+<li>
+<p>Click the <strong>Configure account now</strong> button. You are taken to the landing page where you can see details about the subscription you are buying. Note the marketplace purchase token in the query string.</p>
+</li>
+</ol>
+<hr />
+<p><strong>Congratulation!</strong> You have finished this lab.</p>
+<p>👈 <a href="../../#labs">Back to SaaS Offer labs</a></p>
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        ﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="col-1">
+                <hr>
+                <p class="site-footer__copyright">Copyright &copy; 2022. - Microsoft, Inc. <br>All rights reserved.</p>
+
+            </div><!-- /.col -->
+            <div class="col-2">
+                <img alt="Microsoft Azure logo." src="/Mastering-the-Marketplace/assets/logo-footer.png" class="site-footer__logoimage">
+            </div><!-- /.col -->
+        </div>
+    </footer><!-- /.site-footer -->
+
+</body>
+</html>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.sections", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      
+    
+  </body>
+</html>

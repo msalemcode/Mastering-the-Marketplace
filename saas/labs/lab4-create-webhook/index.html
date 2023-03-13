@@ -1,0 +1,816 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://microsoft.github.io/Mastering-the-Marketplace/saas/labs/lab4-create-webhook/">
+      
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+    
+    
+      
+        <title>Lab 4 - Deploying and Monitoring a Webhook - Mastering the Marketplace</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7bf56d0a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-QFBKKPKXNV"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-QFBKKPKXNV",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-QFBKKPKXNV",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <meta content="https://blogs.microsoft.com/wp-content/uploads/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg" property="image">
+  <meta content="https://blogs.microsoft.com/wp-content/uploads/2012/08/8867.Microsoft_5F00_Logo_2D00_for_2D00_screen.jpg" property="og:image">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#0078D4" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lab-4-deploying-and-monitoring-a-webhook" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://microsoft.github.io/Mastering-the-Marketplace/" title="Mastering the Marketplace" class="md-header__button md-logo" aria-label="Mastering the Marketplace" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mastering the Marketplace
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lab 4 - Deploying and Monitoring a Webhook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/microsoft/Mastering-the-Marketplace" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/Mastering-the-Marketplace
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://microsoft.github.io/Mastering-the-Marketplace/" title="Mastering the Marketplace" class="md-nav__button md-logo" aria-label="Mastering the Marketplace" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M0 32h214.6v214.6H0V32zm233.4 0H448v214.6H233.4V32zM0 265.4h214.6V480H0V265.4zm233.4 0H448V480H233.4V265.4z"/></svg>
+
+    </a>
+    Mastering the Marketplace
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/microsoft/Mastering-the-Marketplace" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    microsoft/Mastering-the-Marketplace
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Courses by offer type
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Courses by offer type
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/ama/" class="md-nav__link">
+        Azure Managed Applications
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/container/" class="md-nav__link">
+        Container offers for K8s apps
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/saas/" class="md-nav__link">
+        SaaS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/vm/" class="md-nav__link">
+        Virtual Machines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/teams/" class="md-nav__link">
+        Teams
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Bonus content
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Bonus content
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/saas-accelerator/" class="md-nav__link">
+        SaaS Accelerator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/partner-center/" class="md-nav__link">
+        Partner Center
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          More resources
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          More resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/misc/select-offer-type" class="md-nav__link">
+        🌐 Choose your offer type
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/learning-paths/" class="md-nav__link">
+        🚦 Learning paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/learning-paths/customer" class="md-nav__link">
+        🔎 For your customers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://microsoftcloudpartner.eventbuilder.com/MarketplaceOverviewandQAforPartners" class="md-nav__link">
+        📆 Marketplace Office Hours
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/Mastering-the-Marketplace/misc/change-log" class="md-nav__link">
+        🗒️ Site change log
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://forms.office.com/r/0gCrzhSMkw" class="md-nav__link">
+        ✉️ Contact us
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-create-a-publish-profile" class="md-nav__link">
+    Exercise: Create a Publish Profile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-publish-the-function-app" class="md-nav__link">
+    Exercise: Publish the Function App
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-getting-the-webhook-uri" class="md-nav__link">
+    Exercise: Getting the webhook URI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-publishing-the-webhook-in-partner-center" class="md-nav__link">
+    Exercise: Publishing the webhook in Partner Center
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publication-time" class="md-nav__link">
+    Publication Time
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-preparing-to-monitor-the-functions-log" class="md-nav__link">
+    Exercise: Preparing to monitor the function's log
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-invoking-the-webhook" class="md-nav__link">
+    Exercise: Invoking the Webhook
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercise: Invoking the Webhook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unsubscribe-from-the-offer" class="md-nav__link">
+    Unsubscribe from the offer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-the-unsubscribe-event" class="md-nav__link">
+    See the Unsubscribe event
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-running-the-entire-saas-subscription-workflow" class="md-nav__link">
+    Extra: Running the entire SaaS subscription workflow
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lab-4-deploying-and-monitoring-a-webhook">Lab 4 - Deploying and Monitoring a Webhook<a class="headerlink" href="#lab-4-deploying-and-monitoring-a-webhook" title="Permanent link">#</a></h1>
+<p>👈 <a href="../../#labs">Back to SaaS Offer labs</a></p>
+<p>⚠️ Completion of this lab is required for the following labs in the series to work properly.</p>
+<blockquote>
+<p>💀 The code in this lab is <strong>NOT</strong> meant to be used for production environments. It is a simple example with no error handling, no custom workflows, and is for learning purposes only.</p>
+</blockquote>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>In this lab, you will build on what you accomplished in previous labs. You will create a SaaS offer webhook and integrate it with your Partner Center SaaS offer configuration, enabling your webhook to respond to subscription change events.</p>
+<p>The webhook in your Visual Studio solution is an Azure Function. There is no need to change the code in the webhook function at this time.</p>
+<p>Looking through the webhook code you'll find that it simply prints the REST payload to the log. You will monitor this log to see the payload when the webhook is called.</p>
+<h2 id="exercise-create-a-publish-profile">Exercise: Create a Publish Profile<a class="headerlink" href="#exercise-create-a-publish-profile" title="Permanent link">#</a></h2>
+<ol>
+<li>In Visual Studio, right click the <code>SaaSFunctions</code> project and select <strong>Publish</strong>. </li>
+<li>For the target, select <strong>Azure</strong> and click <strong>Next</strong>.</li>
+<li>Select <strong>Azure Function App (Windows)</strong> and click <strong>Next</strong>.</li>
+<li>Select the right subscription in the dropdown.</li>
+<li>To publish, you will need to create a new Function App. Above and to the right of the Function Apps tree at the bottom of the dialog, click the <strong>+</strong> button to add a new Function App.</li>
+<li>In the <strong>Name</strong> field, enter <code>SaaSWorkshopFunction</code> followed by a number to make it a unique name.</li>
+<li>Select the right subscription.</li>
+<li>Select the `saas-workshop`` Resource Group.</li>
+<li>Stick with <strong>Plan Type:</strong> Consumption.</li>
+<li>Function Apps require the use of a Data Storage account. To the right of the <strong>Azure Storage</strong> field is a <strong>New...</strong> link. Click it.</li>
+<li>On the Azure storage dialog, click the <strong>OK</strong> button.</li>
+<li>
+<p>Back on the <strong>Function App (windows)</strong> dialog, click the <strong>Create</strong> button.</p>
+<blockquote>
+<p>The App Service deployment will run for a little while.</p>
+</blockquote>
+</li>
+<li>
+<p>On the Publish dialog, click the <strong>Next</strong> button.</p>
+</li>
+<li>On Select the <strong>Publish</strong> option and click the <strong>Finish</strong> button.</li>
+</ol>
+<p>You have create an App Service, App Service Plan, storage account, and a publish profile. Now you will use the purlish profile to publish the function application itself.</p>
+<h2 id="exercise-publish-the-function-app">Exercise: Publish the Function App<a class="headerlink" href="#exercise-publish-the-function-app" title="Permanent link">#</a></h2>
+<p>At the top right of the publish screen, click the <strong>Publish</strong> button. </p>
+<p>It will take a moment to publish the function application. You can watch progress in Visual Studio's Output window.</p>
+<h2 id="exercise-getting-the-webhook-uri">Exercise: Getting the webhook URI<a class="headerlink" href="#exercise-getting-the-webhook-uri" title="Permanent link">#</a></h2>
+<p>You need the webhook URI to add to your <strong>Technical Configuration</strong> in Partner Center. The Function Application contains only one function and you need the URI of that one function.</p>
+<ol>
+<li>Open the Azure portal.</li>
+<li>Find and click on the Azure function in the Azure portal. It is inside your <code>saas-workshop</code> resource group.</li>
+<li>In the left-hand menu find the <strong>Functions</strong> link and click it.</li>
+<li>You see a single function named <code>Webhook</code>. Click that function.</li>
+<li>Near the top of the screen, click <strong>Get Function URL</strong> and you are presented with a dialog.</li>
+<li>Copy the full path to this function into your copy/paste buffer.</li>
+</ol>
+<h2 id="exercise-publishing-the-webhook-in-partner-center">Exercise: Publishing the webhook in Partner Center<a class="headerlink" href="#exercise-publishing-the-webhook-in-partner-center" title="Permanent link">#</a></h2>
+<p>Now you will re-publish your offer, this time with a valid webhook URL.</p>
+<ol>
+<li>In Partner Center, on the <strong>Technical configuration</strong> tab, find the <strong>Connection webhook</strong> field.</li>
+<li>Replace the previous value for the <strong>Connection webhook</strong> with the URL of the function application</li>
+<li>Click <strong>Save Draft</strong>.</li>
+<li><strong>Review and publish</strong> your offer. It should pass validation (all sections are green) so you can publish.</li>
+<li>Click the <strong>Publish</strong> button.</li>
+</ol>
+<blockquote>
+<p>The offer must be in the Partner Center's preview stage for the final exercise of this lab to work. At no point should you click the <strong>Go live</strong> button.</p>
+</blockquote>
+<h2 id="publication-time">Publication Time<a class="headerlink" href="#publication-time" title="Permanent link">#</a></h2>
+<p>This is where you must wait for your offer to be re-published. Of course, there is a waiting period for the offer to be re-published. The good news is that it is usually much faster after the first time.</p>
+<blockquote>
+<p><strong>Note:</strong> If you are in a live workshop event, please raise your hand in Microsoft Teams to indicate you are done with the lab to this point. You will be coming back to finish the rest of the lab later, perhaps on your own after the workshop.</p>
+</blockquote>
+<h2 id="exercise-preparing-to-monitor-the-functions-log">Exercise: Preparing to monitor the function's log<a class="headerlink" href="#exercise-preparing-to-monitor-the-functions-log" title="Permanent link">#</a></h2>
+<p>To see the function's output, we will monitor its log on Azure to see the output it will print to the log. Application Insights must be enabled on the function to support this.</p>
+<ol>
+<li>Open Azure portal and find the Function App. Click it.</li>
+<li>Scroll down in the left-hand menu until you find the <strong>Monitoring</strong> section.</li>
+<li>In the <strong>Monitoring</strong> section, find the <strong>Log stream</strong> link and click it. You are presented with a message to configure Application Insights.</li>
+<li>Click the <strong>Configure</strong> button.</li>
+<li>Under <strong>Create new resource</strong> enter <code>SaaSWorkshopFunction-ai</code>.</li>
+<li>Choose an appropriate location.</li>
+<li>Click the <strong>OK</strong> button at the bottom of the screen. Application insights will install.</li>
+<li>In the upper breadcrumb navigation, click the function <strong>SaaSWorkshopFunction</strong> which takes you back to the Log monitoring screen.</li>
+<li>This should open what looks like a terminal window and you will see "Connected!" at the top of the window.</li>
+</ol>
+<p>You are now watching the function application's log. There will be occasional keep-alive calls to the function that can be ignored. You can click the <strong>Clear</strong> button at the top of the screen to clear the text at ay time.</p>
+<h2 id="exercise-invoking-the-webhook">Exercise: Invoking the Webhook<a class="headerlink" href="#exercise-invoking-the-webhook" title="Permanent link">#</a></h2>
+<p>In a previous lab, you purchased a SaaS offer. That offer is in the <code>Subscribed</code> state, so the customer can unsubscribe from the offer. That's what you will do to invoke the webhook and see it's output.</p>
+<h3 id="unsubscribe-from-the-offer">Unsubscribe from the offer<a class="headerlink" href="#unsubscribe-from-the-offer" title="Permanent link">#</a></h3>
+<ol>
+<li>Open a new tab to the Azure portal.</li>
+<li>In the command bar at the top type <strong>SaaS</strong> and click the <strong>SaaS</strong> service that is appears.</li>
+<li>Find the offer you purchased earlier and click it.</li>
+<li>At the top of the page, click and confirm <strong>Cancel subscription</strong>. Fill in the required information to unsubscribe from the offer.</li>
+<li>Click the <strong>Cancel subscription</strong> button. You will get a message in the upper right of your window stating that cancellation of the subscription is in progress.</li>
+</ol>
+<h3 id="see-the-unsubscribe-event">See the Unsubscribe event<a class="headerlink" href="#see-the-unsubscribe-event" title="Permanent link">#</a></h3>
+<p>Go back to your function's Log tab. You will likely have time to hit the <strong>Clear</strong> button to clear the screen.</p>
+<blockquote>
+<p>It can take a few minutes for the <strong>Unsubscribe</strong> event to invoke the webhook.</p>
+</blockquote>
+<p>Don't forget that your offer must be in the <strong>Publisher signoff</strong> stage for the webhook to be fully published so it will be invoked.</p>
+<p>Just wait for the Unsubscribe event to show up in the Log window and print the payload to the screen.</p>
+<h2 id="extra-running-the-entire-saas-subscription-workflow">Extra: Running the entire SaaS subscription workflow<a class="headerlink" href="#extra-running-the-entire-saas-subscription-workflow" title="Permanent link">#</a></h2>
+<p>You now have all the elements in place needed to manage a SaaS offer subscription purchase. To exercise all steps of the process you can do the following.</p>
+<p>🗒️ You do not need to complete the following steps to consider this lab complete. </p>
+<ol>
+<li>Purchase the SaaS offer either through Partner Center or as a private offer in the Azure Portal.</li>
+<li>Go to the landing page to activate the subscription.</li>
+<li>Use the Publisher Portal to activate the subscription, changing its state to <strong>Subscribed</strong>.</li>
+<li><strong>Cancel the subscription</strong> from the <strong>Subscribed</strong> subscription through the SaaS management tool in the Azure portal.</li>
+<li>Watch the webhook function get called with the full payload of the unsubscribed event.</li>
+</ol>
+<hr />
+<p><strong>Congratulation!</strong> You have finished this lab.</p>
+<p>👈 <a href="../../#labs">Back to SaaS Offer labs</a></p>
+
+
+  
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        ﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="col-1">
+                <hr>
+                <p class="site-footer__copyright">Copyright &copy; 2022. - Microsoft, Inc. <br>All rights reserved.</p>
+
+            </div><!-- /.col -->
+            <div class="col-2">
+                <img alt="Microsoft Azure logo." src="/Mastering-the-Marketplace/assets/logo-footer.png" class="site-footer__logoimage">
+            </div><!-- /.col -->
+        </div>
+    </footer><!-- /.site-footer -->
+
+</body>
+</html>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.sections", "navigation.expand"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      
+    
+  </body>
+</html>
